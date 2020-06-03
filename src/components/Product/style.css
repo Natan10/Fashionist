@@ -1,0 +1,41 @@
+.card_product {
+  width: 254px;
+  height: 400px;
+  
+  display: flex;
+  flex-direction: column;
+  margin: 0 10px 45px 0;
+  
+}
+
+.photo_product span{
+  position: absolute;
+  color:white;
+  background: red;
+
+  padding: 5px 5px;
+}
+.photo_product img{
+  width: 100%;
+  height: 370px;
+}
+
+.price_and_descount{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+}
+
+.price_and_descount h2{
+  margin: 5px 0 0 0;
+  font-size: 15px;
+}
+
+.price_and_descount span{
+  margin: 0;
+}
+
+

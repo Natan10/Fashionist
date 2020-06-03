@@ -1,0 +1,38 @@
+.navbar{
+  padding: 20px;
+  margin-bottom: 40px;
+  background-color:#000000;
+  color: aliceblue;
+
+}
+
+.container{
+  margin: 0 18vw 0 19vw;
+}
+
+.navbar ul{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+
+.navbar ul li h1{
+  margin: 0;
+}
+
+.navbar ul li svg{
+  margin: 0 5px 0 5px;
+}
+
+@media (max-width: 600px) 
+{
+  .container{
+    margin: 0 5vw 0 5vw;
+  }
+}
