@@ -21,12 +21,13 @@
 }
 
 .price_and_descount{
+  text-align: center;
+  
+  
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  text-align: center;
 }
 
 .price_and_descount h2{
