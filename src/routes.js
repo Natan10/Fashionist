@@ -3,7 +3,8 @@ import {BrowserRouter,Switch,Route} from 'react-router-dom';
 
 import Navbar from './components/Navbar';
 import Products from './components/Products';
-import productDetail from './components/ProductDetail';
+import ProductDetail from './components/ProductDetail';
+import CartProducts from './components/CartProducts';
 
 
 export default function Routes(){
@@ -12,7 +13,8 @@ export default function Routes(){
       <Navbar />
       <Switch>
         <Route exact path="/" component={Products}/>
-        <Route path="/product" component={productDetail}/>
+        <Route path="/product/:code_color?" component={ProductDetail}/>
+        <Route path="/cart" component={CartProducts}/>
       </Switch>
     </BrowserRouter>
   )

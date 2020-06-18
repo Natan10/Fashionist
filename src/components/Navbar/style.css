@@ -30,9 +30,31 @@
   margin: 0 5px 0 5px;
 }
 
+.navbar ul li .icon_qtd_cart{
+  position: absolute;
+  top: 40px;
+  right: 380px;
+  padding: 2px 6px;
+  border: 1px solid red;
+  border-radius: 50%;
+  background-color: red;
+  font-weight: bold;
+}
+
 @media (max-width: 600px) 
 {
   .container{
     margin: 0 5vw 0 5vw;
+  }
+
+  .navbar ul li .icon_qtd_cart{
+    position: absolute;
+    top: 38px;
+    right: 55px;
+    padding: 2px 6px;
+    border: 1px solid red;
+    border-radius: 50%;
+    background-color: red;
+    font-weight: bold;
   }
 }

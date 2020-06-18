@@ -62,11 +62,17 @@
   border: 1px solid rgba(192,192,192,0.4);
   border-radius: 5px;
   font-weight: bold;
+  cursor: pointer;
 }
 
 
-.product_length_detail ul li:hover{
+.product_length_detail ul li:active{
   background:#DC143C;
+  color: white;
+}
+
+.product_length_detail .is_active{
+  background: #DC143C;
   color: white;
 }
 
@@ -78,7 +84,7 @@
   border-radius: 5px;
   padding: 5px 40px;
   margin-top: 5px;
-  
+
   -webkit-box-shadow: 1px -1px 23px 3px rgba(0,0,0,0.25);
   -moz-box-shadow: 1px -1px 23px 3px rgba(0,0,0,0.25);
   box-shadow: 1px -1px 23px 3px rgba(0,0,0,0.25);
