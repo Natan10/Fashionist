@@ -23,11 +23,16 @@ export default function Products(){
 
 
   return(
+    <>
+    <div className="total_itens">
+    <span>{store.products.length} itens</span>
+    </div>
     <div className="container_products">
       {store.products.map(product => <Product key={product.code_color} 
                                     data={product} 
                                     />)}
     </div>
+    </>
   )
 
 }

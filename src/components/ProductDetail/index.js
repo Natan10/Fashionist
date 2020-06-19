@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {useParams} from 'react-router-dom';
 import {useSelector} from 'react-redux';
 
@@ -7,11 +7,30 @@ import foto from '../../assets/Goku.jpg';
 
 export default function ProductDetail(){
 
+  const [sizeSelect,selectSize] = useState('');
+  const [sizeError,setSizeError] = useState(false);
+
   const { code_color } = useParams();
   const  store  = useSelector(state => state);
-  console.log(store.products)
   const product = store.products.filter(prod => prod.code_color === code_color);
-  console.log(product)
+
+  const handleClickSize = (size) =>{
+    if (size === sizeSelect) {
+      selectSize('');
+      setSizeError(true);
+    } else {
+      selectSize(size);
+      setSizeError(false);
+    }
+  }
+
+  const addProduct = () => {
+    if(sizeSelect === ''){
+      setSizeError(true);
+    }else{
+      alert('deu bom')
+    }
+  }
 
   return(
     <div className="card_product_detail">
@@ -27,17 +46,16 @@ export default function ProductDetail(){
         </div>
         
         <div className="product_length_detail">
-          <span>escolha o tamanho</span>
-          <ul>
-            {product[0].sizes
-                       .filter(size => size.available === true)
-                       .map(size => 
-                       <li className="is_active">{size.size}</li>
-                       )}
+          {!sizeError ? '': <span>escolha o tamanho</span>}
+          <div className="size">
+            {product[0].sizes.map((item,key) => 
+              <button className={sizeSelect === item.size ? `button_size select`: `button_size`} 
+                      key={key} 
+                      disabled={!item.available} 
+                      onClick={()=> handleClickSize(item.size)}>{item.size}</button>)}
+          </div>
     
-          </ul>
-
-          <button>Adicionar à Sacola</button>
+          <button className="button_add_cart" onClick={()=> addProduct()}>Adicionar à Sacola</button>
         </div>     
       </div>
     </div>

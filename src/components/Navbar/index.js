@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom';
 import { FaShoppingBasket } from "react-icons/fa";
 import './style.css'
 
@@ -14,10 +15,16 @@ export default function Navbar(){
       <div className="navbar">
        <div className="container">
         <ul>
-          <li><h1>Fashionist</h1></li>
           <li>
-            <FaShoppingBasket size={25}/>
-            {cartProducts.length > 0 ? <span className="icon_qtd_cart">{cartProducts.length}</span>: ''}
+              <Link to="/">
+                <h1>Fashionist</h1>
+              </Link>
+          </li>
+          <li>
+            <Link to="/cart">
+              <FaShoppingBasket size={25}/>
+              {cartProducts.length > 0 ? <span className="icon_qtd_cart">{cartProducts.length}</span>: ''}
+            </Link>
           </li>
         </ul>
        </div>

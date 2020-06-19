@@ -1,7 +1,17 @@
 .container_products{
-  margin: 5vh 20vw 5vh 20vw;
+  margin: 2vh 20vw 5vh 20vw;
 
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
+}
+
+.total_itens{
+  margin: 0 20vw 0 20vw;
+  padding-left: 13px;
+}
+
+.total_itens span{
+  font-size: 18px;
+  color: rgba(169,169,169,0.8)
 }

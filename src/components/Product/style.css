@@ -8,6 +8,7 @@
   
 }
 
+
 .photo_product span{
   position: absolute;
   color:white;
@@ -40,3 +41,6 @@
 }
 
 
+a{
+  text-decoration: none;
+}

@@ -10,7 +10,7 @@ import CartProducts from './components/CartProducts';
 export default function Routes(){
   return(
     <BrowserRouter>
-      <Navbar />
+      <Navbar/>
       <Switch>
         <Route exact path="/" component={Products}/>
         <Route path="/product/:code_color?" component={ProductDetail}/>
