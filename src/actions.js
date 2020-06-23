@@ -6,18 +6,11 @@ export function addProducts(products){
   }
 }
 
-export function addProduct(product){
+export function addProductCart(product){
   return {
-    type: 'ADD_PRODUCT',
+    type: 'ADD_PRODUCT_CART',
     payload: product,
   }
 }
 
 
-
-export function productDetail(product){
-  return{
-    type: 'PRODUCT_DETAIL',
-    payload: product,
-  }
-}
