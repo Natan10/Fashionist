@@ -7,6 +7,7 @@ export function addProducts(products){
 }
 
 export function addProductCart(product){
+  console.log(product)
   return {
     type: 'ADD_PRODUCT_CART',
     payload: product,

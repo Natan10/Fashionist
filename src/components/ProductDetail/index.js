@@ -24,16 +24,14 @@ export default function ProductDetail({ product }){
 
  const addProd = (e) => {
    e.preventDefault();
-
-   const { sizes,...rest } = product
-   if(sizeSelect === ''){
-     setSizeError(true);
-   }else{
-   //  dispatch(addProductCart({
-   //    ...product,
-   //    sizeSelect,
-   //  }));
-   console.log(...rest)
+   if(sizeSelect !== ''){
+    const { sizes,...rest } = product
+    dispatch(addProductCart({
+      ...rest,
+      sizeSelect: sizeSelect,
+    }));
+  }else{
+    setSizeError(true);
    }
  }
 
@@ -50,7 +48,7 @@ export default function ProductDetail({ product }){
         </div>
         
         <div className="product_length_detail">
-          { sizeError ? '':<span>escolha o tamanho</span>}
+          { !sizeError ? '':<span>escolha o tamanho</span>}
           <div className="size">
               {product.sizes && product.sizes.map((item,key) => 
               <button className={sizeSelect === item.size ? `button_size select`: `button_size`} 

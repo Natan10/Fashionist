@@ -1,11 +1,13 @@
 import React from 'react';
 import { BsTrash } from 'react-icons/bs';
+import {useSelector,useDispatch} from 'react-redux';
 
 import './style.css';
 import foto from '../../assets/Goku.jpg';
 
 export default function CartProducts(){
 
+  const {cartProducts} = useSelector(state => state);
   /**
     <div className="cart_products_info">
       <div className="cart_products_photo">
@@ -39,37 +41,25 @@ export default function CartProducts(){
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td><img src={foto} alt="teste"/></td>
-            <td>
-              <h2>Roupa do Goku</h2>
-              <span>Tam: 40</span></td>
-            <td>
-              <ul>
-                <li className="button_list"> - </li>
-                <li className="qtd_list"> 2 </li>
-                <li className="button_list"> + </li>
-              </ul>
-            </td>
-            <td>R$ 42,00</td>
-            <td><BsTrash className="icon" size={20}/></td>
-          </tr>
-
-          <tr>
-            <td><img src={foto} alt="teste"/></td>
-            <td>
-              <h2>Roupa do Goku</h2>
-              <span>Tam: 40</span></td>
-            <td>
-              <ul>
-                <li className="button_list"> - </li>
-                <li className="qtd_list"> 2 </li>
-                <li className="button_list"> + </li>
-              </ul>
-            </td>
-            <td>R$ 42,00</td>
-            <td><BsTrash className="icon" size={20}/></td>
-          </tr>
+          {cartProducts.map((item,key) =>(
+            // eslint-disable-next-line no-unused-expressions
+            <tr key={key}>
+              <td>{item.image ? <img src={item.image} alt='Goku'/>:<img src={foto} alt='Goku'/>}</td>
+              <td>
+                <h2>{item.name}</h2>
+                <span>Tam: {item.sizeSelect}</span></td>
+              <td>
+                <ul>
+                  <li className="button_list"> - </li>
+                  <li className="qtd_list"> 2 </li>
+                  <li className="button_list"> + </li>
+                </ul>
+              </td>
+              <td>{item.actual_price}</td>
+              <td><BsTrash className="icon" size={20}/></td>
+            </tr>
+           ))}
+          
         </tbody>
       </table>
       <div className="footer">

@@ -13,6 +13,7 @@ function reducer(state = INITIAL_STATE,action){
       }
     case 'ADD_PRODUCT_CART':
       return {
+        ...state,
         cartProducts:[...state.cartProducts,action.payload]
       }
     default:

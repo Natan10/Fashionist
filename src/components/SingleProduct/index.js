@@ -6,7 +6,7 @@ import {useParams} from 'react-router-dom';
 
 export default function SingleProduct(){
 
-  const [product,setProduct] = useState(''); 
+  const [product,setProduct] = useState({}); 
   const {code_color} = useParams();
   const { products } = useSelector(state => state);
 

@@ -13,7 +13,7 @@ export default function Routes(){
       <Navbar/>
       <Switch>
         <Route exact path="/" component={Products}/>
-        <Route path="/product/:code_color?" component={SingleProduct}/>
+        <Route path="/product/:code_color" component={SingleProduct}/>
         <Route path="/cart" component={CartProducts}/>
       </Switch>
     </BrowserRouter>
