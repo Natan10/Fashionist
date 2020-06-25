@@ -7,6 +7,15 @@ const formatPrice = (amount,price) => {
 }
 
 
+const totalValue = (cartProducts) => {
+  console.log(cartProducts)
+  const valueTotal = cartProducts.reduce((sumValue,item) => 
+                              sumValue += parseFloat(formatPrice(item.amount,item.actual_price)) ,0)
+  return valueTotal.toFixed(2)
+}
+
+
 export{
   formatPrice,
+  totalValue
 }

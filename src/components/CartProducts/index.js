@@ -2,9 +2,9 @@ import React from 'react';
 import { BsTrash } from 'react-icons/bs';
 
 import {useSelector,useDispatch} from 'react-redux';
-import {decreaseAmountProduct} from '../../actions';
+import {decreaseAmountProduct,addProductCart} from '../../actions';
 
-import {formatPrice} from '../../utils/formatInfo';
+import {formatPrice,totalValue} from '../../utils/formatInfo';
 
 import './style.css';
 import foto from '../../assets/Goku.jpg';
@@ -14,17 +14,19 @@ export default function CartProducts(){
   const {cartProducts} = useSelector(state => state);
   const dispatch = useDispatch();
 
-  const increaseAmount = (product) => {
+  const decreaseAmount = (product) => {
     if(product.amount > 1){
       dispatch(decreaseAmountProduct(product))
     }else{
-      alert('nao pode!')
+      alert('Ação não permitida...')
     }
   }
 
+  const increaseAmount = (product) => {
+    dispatch(addProductCart(product))
+  }
 
 
-  console.log(cartProducts)
   return (
     <div className="cart_products">
       <table className="cart_products_table">
@@ -47,10 +49,9 @@ export default function CartProducts(){
                 <h2>{item.name}</h2>
                 <span>Tam: {item.sizeSelect}</span></td>
               <td>
-                  <button className="button_list" onClick={()=> increaseAmount(item)}> - </button>
+                  <button className="button_list" onClick={()=> decreaseAmount(item)}> - </button>
                   <span className="qtd_list">{item.amount}</span>
-                  <button className="button_list"> + </button>
-  
+                  <button className="button_list" onClick={()=> increaseAmount(item)}> + </button>
               </td>
               <td>{formatPrice(item.amount,item.actual_price)}</td>
               <td><BsTrash className="icon" size={20}/></td>
@@ -60,7 +61,7 @@ export default function CartProducts(){
         </tbody>
       </table>
       <div className="footer__cart">
-        <span>Subtotal: R$ 523,00</span>
+        <span>Subtotal: R$ {totalValue(cartProducts)}</span>
       </div>
     </div>
   )
