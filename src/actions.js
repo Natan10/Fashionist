@@ -7,7 +7,6 @@ export function addProducts(products){
 }
 
 export function addProductCart(product){
-  console.log(product)
   return {
     type: 'ADD_PRODUCT_CART',
     payload: product,
@@ -15,3 +14,10 @@ export function addProductCart(product){
 }
 
 
+
+export function decreaseAmountProduct(product){
+  return{
+    type: 'DECREASE_AMOUNT_PRODUCT',
+    payload: product,
+  }
+}

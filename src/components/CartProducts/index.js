@@ -1,6 +1,10 @@
 import React from 'react';
 import { BsTrash } from 'react-icons/bs';
-import {useSelector} from 'react-redux';
+
+import {useSelector,useDispatch} from 'react-redux';
+import {decreaseAmountProduct} from '../../actions';
+
+import {formatPrice} from '../../utils/formatInfo';
 
 import './style.css';
 import foto from '../../assets/Goku.jpg';
@@ -8,7 +12,19 @@ import foto from '../../assets/Goku.jpg';
 export default function CartProducts(){
 
   const {cartProducts} = useSelector(state => state);
+  const dispatch = useDispatch();
 
+  const increaseAmount = (product) => {
+    if(product.amount > 1){
+      dispatch(decreaseAmountProduct(product))
+    }else{
+      alert('nao pode!')
+    }
+  }
+
+
+
+  console.log(cartProducts)
   return (
     <div className="cart_products">
       <table className="cart_products_table">
@@ -22,6 +38,7 @@ export default function CartProducts(){
           </tr>
         </thead>
         <tbody>
+          
           {cartProducts.map((item,key) =>(
             // eslint-disable-next-line no-unused-expressions
             <tr key={key}>
@@ -30,20 +47,19 @@ export default function CartProducts(){
                 <h2>{item.name}</h2>
                 <span>Tam: {item.sizeSelect}</span></td>
               <td>
-                <ul>
-                  <li className="button_list"> - </li>
-                  <li className="qtd_list"> 2 </li>
-                  <li className="button_list"> + </li>
-                </ul>
+                  <button className="button_list" onClick={()=> increaseAmount(item)}> - </button>
+                  <span className="qtd_list">{item.amount}</span>
+                  <button className="button_list"> + </button>
+  
               </td>
-              <td>{item.actual_price}</td>
+              <td>{formatPrice(item.amount,item.actual_price)}</td>
               <td><BsTrash className="icon" size={20}/></td>
             </tr>
            ))}
           
         </tbody>
       </table>
-      <div className="footer">
+      <div className="footer__cart">
         <span>Subtotal: R$ 523,00</span>
       </div>
     </div>

@@ -4,6 +4,7 @@ import Product from '../Product';
 import './style.css';
 
 import {useSelector, useDispatch} from 'react-redux';
+import Footer from '../Footer';
 
 import api from '../../utils/api';
 import {addProducts} from '../../actions';
@@ -32,6 +33,8 @@ export default function Products(){
                                     data={product} 
                                     />)}
     </div>
+
+    <Footer/>
     </>
   )
 

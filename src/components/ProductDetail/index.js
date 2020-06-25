@@ -9,7 +9,7 @@ export default function ProductDetail({ product }){
   const dispatch = useDispatch();
 
   const [sizeSelect,selectSize] = useState('');
-  const [sizeError,setSizeError] = useState(true);
+  const [sizeError,setSizeError] = useState(false);
 
 
   const handleClickSize = (size) =>{
@@ -22,8 +22,14 @@ export default function ProductDetail({ product }){
     }
   }
 
+
+
+
+
+
  const addProd = (e) => {
    e.preventDefault();
+
    if(sizeSelect !== ''){
     const { sizes,...rest } = product
     dispatch(addProductCart({
@@ -34,6 +40,7 @@ export default function ProductDetail({ product }){
     setSizeError(true);
    }
  }
+
 
   return(
     <div className="card_product_detail">

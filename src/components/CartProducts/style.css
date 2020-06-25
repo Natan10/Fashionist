@@ -60,24 +60,26 @@
   margin: 0 10px 0 10px;
 }
 
-.cart_products_table tbody tr td ul li.qtd_list{
+.cart_products_table tbody tr td.qtd_list{
   font-size: 20px;
   color:red;
 }
 
-.cart_products_table tbody tr td ul li.button_list{
+.cart_products_table tbody tr td .button_list{
   font-size: 15px;
   font-weight: bold;
-  padding: 5px 5px;
+  margin: 0 10px;
+  padding: 6px 8px;
   border: 1px solid black;
+  border-radius: 3px;
 }
 
-.cart_products_table tbody tr td ul li.button_list:hover{
+.cart_products_table tbody tr td .button_list:hover{
   background-color:rgba(169,169,169,0.5) ;
 }
 
 
-.footer{
+.footer__cart{
   text-align: right;
   margin-top: 20px;
   font-size: 20px;
