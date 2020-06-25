@@ -6,6 +6,8 @@ import Products from './components/Products';
 //import ProductDetail from './components/ProductDetail';
 import CartProducts from './components/CartProducts';
 import SingleProduct from './components/SingleProduct';
+import Footer from './components/Footer';
+
 
 export default function Routes(){
   return(
@@ -16,6 +18,7 @@ export default function Routes(){
         <Route path="/product/:code_color" component={SingleProduct}/>
         <Route path="/cart" component={CartProducts}/>
       </Switch>
+      <Footer/>
     </BrowserRouter>
   )
 }

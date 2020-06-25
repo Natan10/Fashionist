@@ -1,0 +1,39 @@
+.footer{
+  padding: 5px;
+  background-color: #000000;
+  color: aliceblue;
+  margin: 0;
+}
+
+.footer__container{
+  margin: 0 18vw 0 19vw;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer__container h2{
+  margin: 5px 0 5px 0;
+}
+
+.footer__container span{
+  margin: 0px 0 10px 0;
+  text-align: center;
+}
+
+.footer__itens{
+  margin-bottom: 5px;
+}
+
+.footer__itens svg{
+  margin: 0 5px;
+}
+
+.footer__itens a{
+  color:white;
+}
+
+.footer__itens a:hover{
+  color: red;
+}
