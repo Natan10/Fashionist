@@ -6,6 +6,15 @@ export function addProducts(products){
   }
 }
 
+export function addStock(stock){
+ 
+  return {
+    type: 'ADD_STOCK',
+    payload: stock,
+  }
+}
+
+
 export function addProductCart(product){
   return {
     type: 'ADD_PRODUCT_CART',
@@ -18,6 +27,16 @@ export function addProductCart(product){
 export function decreaseAmountProduct(product){
   return{
     type: 'DECREASE_AMOUNT_PRODUCT',
+    payload: product,
+  }
+}
+
+
+
+export function deleteItemCart(product){
+  console.log(product)
+  return{
+    type: 'DELETE_ITEM_CART',
     payload: product,
   }
 }

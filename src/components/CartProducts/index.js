@@ -2,7 +2,7 @@ import React from 'react';
 import { BsTrash } from 'react-icons/bs';
 
 import {useSelector,useDispatch} from 'react-redux';
-import {decreaseAmountProduct,addProductCart} from '../../actions';
+import {decreaseAmountProduct,addProductCart,deleteItemCart} from '../../actions';
 
 import {formatPrice,totalValue} from '../../utils/formatInfo';
 
@@ -26,6 +26,10 @@ export default function CartProducts(){
     dispatch(addProductCart(product))
   }
 
+  const deleteItem = (product) => {
+    dispatch(deleteItemCart(product))
+  }
+
 
   return (
     <div className="cart_products">
@@ -46,15 +50,15 @@ export default function CartProducts(){
             <tr key={key}>
               <td>{item.image ? <img src={item.image} alt='Goku'/>:<img src={foto} alt='Goku'/>}</td>
               <td>
-                <h2>{item.name}</h2>
-                <span>Tam: {item.sizeSelect}</span></td>
-              <td>
-                  <button className="button_list" onClick={()=> decreaseAmount(item)}> - </button>
-                  <span className="qtd_list">{item.amount}</span>
-                  <button className="button_list" onClick={()=> increaseAmount(item)}> + </button>
+                <h2>{item.title}</h2>
               </td>
-              <td>{formatPrice(item.amount,item.actual_price)}</td>
-              <td><BsTrash className="icon" size={20}/></td>
+              <td>
+                <button className="button_list" onClick={()=> decreaseAmount(item)}> - </button>
+                <span className="qtd_list">{item.amount}</span>
+                <button className="button_list" onClick={()=> increaseAmount(item)}> + </button>
+              </td>
+              <td>{formatPrice(item.amount,item.price)}</td>
+              <td onClick={()=>deleteItem(item)}><BsTrash className="icon" size={20} /></td>
             </tr>
            ))}
           

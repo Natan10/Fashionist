@@ -1,18 +1,18 @@
-import React,{useEffect} from 'react';
+import React,{useState,useEffect} from 'react';
 
 import Product from '../Product';
 import './style.css';
 
 import {useSelector, useDispatch} from 'react-redux';
-import Footer from '../Footer';
+import Loader from '../Loader';
 
-import api from '../../utils/api';
-import {addProducts} from '../../actions';
+import {api,stock_product} from '../../utils/api';
+import {addProducts,addStock} from '../../actions';
 
 export default function Products(){
 
   //Estado da aplicação no Redux
-  //const [data,setDados] = useState([]);
+  const [loader,setLoader] = useState(true);
 
   const store = useSelector(state => state);
   const dispatch  = useDispatch();
@@ -20,21 +20,27 @@ export default function Products(){
 
   useEffect(()=>{
     api().then(value => dispatch(addProducts(value)));
+    stock_product().then(value => dispatch(addStock(value)));
+    setLoader(false)
   },[dispatch])
 
 
   return(
     <>
-    <div className="total_itens">
-    <span>{store.products.length} itens</span>
-    </div>
-    <div className="container_products">
-      {store.products.map(product => <Product key={product.code_color} 
-                                    data={product} 
-                                    />)}
-    </div>
-
-    <Footer/>
+    {
+    loader ? <Loader/> :
+    <>
+      <div className="total_itens">
+        <span>{store.products.length} itens</span>
+      </div>
+      <div className="container_products">
+        {store.products.map(product => <Product 
+                                        key={product.id} 
+                                        data={product} 
+                                        />)}
+      </div>
+    </>
+    }
     </>
   )
 

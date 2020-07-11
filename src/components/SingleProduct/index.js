@@ -6,18 +6,22 @@ import {useParams} from 'react-router-dom';
 
 export default function SingleProduct(){
 
-  const [product,setProduct] = useState({}); 
-  const {code_color} = useParams();
-  const { products } = useSelector(state => state);
+  const [product,setProduct] = useState(''); 
+  const [stock_product,setProductStock] = useState(''); 
+  const { id } = useParams();
+  const { products,stock } = useSelector(state => state);
 
   useEffect(() => {
-    setProduct(products.find(prod => prod.code_color === code_color))
-  }, [code_color, products])
+    const product_store = products.find(p => p.id === parseInt(id))
+    const stock_store = stock.find(p => p.id === parseInt(id))
+    setProduct(product_store)
+    setProductStock(stock_store)
+  }, [id, products,stock])
 
-
+  
   return(
     <>
-      <ProductDetail product={product}/>
+      <ProductDetail product={product} stock={stock_product}/>
     </>
   )
 }
